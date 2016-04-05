@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/index';
+// import { fetchPosts } from '../actions/index';
+import { fetchCode } from '../actions/index';
 import { Link } from 'react-router';
 
 class PostsIndex extends Component {
