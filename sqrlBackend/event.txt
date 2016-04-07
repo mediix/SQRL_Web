@@ -1,0 +1,14 @@
+{
+    "body":{
+        "operation":"generate",
+        "session_id":"12345"
+    },
+    "headers":{
+        "X-Sqrl-Request-Id":"",
+        "X-Sqrl-API-Key":""
+    },
+    "params":{},
+    "query":{
+        "q":"generate"
+    }
+}
