@@ -14,9 +14,9 @@ def dynamoWriter(event, context):
     testdata = base64.urlsafe_b64encode(os.urandom(6))
     now = datetime.datetime.now()
     expiry = now + datetime.timedelta(minutes=10)
-    
+
     table = dynamodb.Table('csci152sqrlchallenges2')
-    
+
     table.put_item(
         Item={
             'qrcode': testdata,

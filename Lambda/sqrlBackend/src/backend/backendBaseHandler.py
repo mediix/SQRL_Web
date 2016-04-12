@@ -1,7 +1,8 @@
 import abc
 import logging
 
-from model import Codes
+from model import Challenge
+
 
 class backendBaseHandler(object):
     """
@@ -14,9 +15,9 @@ class backendBaseHandler(object):
     def __init__(self):
         self.logger = logging.getLogger()
         self.logger.setLevel(logging.INFO)
-        if not Codes.exists():
+        if not Challenge.exists():
             self.logger.info("Creating table...")
-            Codes.create_table(read_capacity_units=5, write_capacity_units=5, wait=True)
+            Challenge.create_table(read_capacity_units=5, write_capacity_units=5, wait=True)
 
     @abc.abstractmethod
     def on_generate(self, request_body, request_params):

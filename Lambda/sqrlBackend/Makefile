@@ -37,28 +37,33 @@ test/%: $(wildcard src/**/*) $(wildcard lib/**/*) $(wildcard tests/*) build/setu
 	PYTHONPATH="${DIR}build" python -m unittest tests.test$(call TITLE_CASE,$*) $(if $(VERBOSE),--verbose)
 
 create/%: dist/%.zip _check-desc 
-	aws s3 cp $< s3://sportarchive-${ENV}-code/lambda/$(<F)
+	aws s3 cp $< s3://sqrlcontainer/lambda-${ENV}-code/$(<F)
 	aws lambda create-function \
 		--function-name $* \
-		--memory-size 1536 \
+		--memory-size 256 \
 		--runtime python2.7 \
-		--role arn:aws:iam::441276146445:role/lambda_orchestrate_role \
+		--role arn:aws:iam::136162183757:role/lambda_basic_execution \
 		--handler index.handler \
-		--code S3Bucket=sportarchive-${ENV}-code,S3Key=lambda/$(<F) \
+		--code S3Bucket=sqrlcontainer,S3Key=lambda-${ENV}-code/$(<F) \
 		--description '${DESC}' \
 		--timeout 10
-setmem/%: _check-size 
+
+setmem/%: _check-size
 	aws lambda update-function-configuration \
 		--function-name $* \
 		--memory-size ${SIZE}
-deploy: $(addprefix deploy/,$(call FILTER_OUT,__init__, $(notdir $(wildcard src/*))))
+
 deploy/%: dist/%.zip
-	aws s3 cp $< s3://sportarchive-${ENV}-code/lambda/$(<F)
+	aws s3 cp $< s3://sqrlcontainer/lambda-${ENV}-code/$(<F)
 	aws lambda update-function-code \
 		--function-name $* \
-		--s3-bucket sportarchive-${ENV}-code \
-		--s3-key lambda/$(<F)
+		--s3-bucket sqrlcontainer \
+		--s3-key lambda-${ENV}-code/$(<F)
+
+deploy: $(addprefix deploy/,$(call FILTER_OUT,__init__, $(notdir $(wildcard src/*))))
+
 dist: $(addprefix dist/,$(addsuffix .zip,$(call FILTER_OUT,__init__, $(notdir $(wildcard src/*)))))
+
 dist/%.zip: src/%/* build/setup.cfg $(wildcard lib/**/*)
 	cd build && zip -r -q ../$@ *
 	zip -r -q $@ lib

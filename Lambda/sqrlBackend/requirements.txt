@@ -1,5 +1,4 @@
 simplejson
 boto3
-requests
 pynamodb
 pyqrcode
