@@ -1,0 +1,14 @@
+{
+    "body":{
+        "operation":"authenticate",
+        "params":"client=post+param1&server=Post+param2"
+    },
+    "headers":{
+        "X-Sqrl-Request-Id":"",
+        "X-Sqrl-API-Key":""
+    },
+    "params":{},
+    "query":{
+        "q":"generate"
+    }
+}

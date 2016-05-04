@@ -11,7 +11,8 @@ class Challenge(Model):
     class Meta:
         table_name = 'qrCodes'
         region = 'us-west-2'
-        host = 'https://dynamodb.us-west-2.amazonaws.com'
+        #host = 'https://dynamodb.us-west-2.amazonaws.com'
+        host = "http://localhost:8000"
 
     class CodeIndex(GlobalSecondaryIndex):
         """"""
@@ -30,6 +31,7 @@ class Challenge(Model):
     expiry = NumberAttribute(null=False)
     s3_file_path = UnicodeAttribute(null=False)
     is_expired = NumberAttribute(default=0)  # 1 is expired
+    user_logged_in = UnicodeAttribute(null=False)
     qrcode_index = CodeIndex()
 
 
