@@ -11,8 +11,8 @@ class Challenge(Model):
     class Meta:
         table_name = 'qrCodes'
         region = 'us-west-2'
-        #host = 'https://dynamodb.us-west-2.amazonaws.com'
-        host = "http://localhost:8000"
+        host = 'https://dynamodb.us-west-2.amazonaws.com'
+        #host = "http://localhost:8000"
 
     class CodeIndex(GlobalSecondaryIndex):
         """"""
