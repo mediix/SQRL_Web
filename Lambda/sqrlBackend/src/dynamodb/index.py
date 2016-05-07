@@ -5,7 +5,6 @@ import json
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-
 def handler(event, context):
     """
     :param event:
@@ -13,7 +12,4 @@ def handler(event, context):
     :return:
     """
     logger.info('Event Received: {}'.format(event))
-
-
-
     return json.loads(json.dumps(result))

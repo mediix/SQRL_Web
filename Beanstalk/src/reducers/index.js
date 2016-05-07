@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import qrcodeReducer from './qrcode';
-// import PostReducer from './reducer_post';
-// import { reducer as formReducer } from 'redux-form';
+import PostReducer from './reducer_post';
 
 const rootReducer = combineReducers({
-    qrcode: qrcodeReducer;
+    // posts: PostReducer,
+    qrcode: PostReducer
 });
 
 export default rootReducer;

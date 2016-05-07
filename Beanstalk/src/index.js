@@ -7,10 +7,18 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import routes from './routes';
 
+import App from './components/app';
+
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
+// ReactDOM.render(
+//     <Provider store={createStoreWithMiddleware(reducers)}>
+//         <Router history={browserHistory} routes={routes} />
+//     </Provider>
+//     , document.querySelector('.react-box'));
+
 ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
-        <Router history={browserHistory} routes={routes} />
+    <Provider>
+        <App />
     </Provider>
     , document.querySelector('.react-box'));

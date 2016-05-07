@@ -1,13 +1,12 @@
-import { FETCH_POSTS, FETCH_POST } from '../actions/index';
+import { FETCH_QRCODE } from '../actions/index';
 
-const INITIAL_STATE = { all: [], post: null };
+// const INITIAL_STATE = { all: [], post: null, qrcode: null };
+const INITIAL_STATE = { qrcode: null };
 
 export default function(state=INITIAL_STATE, action) {
     switch(action.type) {
-        case FETCH_POSTS:
-            return { ...state, all: action.payload.data };
-        case FETCH_POST:
-            return { ...state, post: action.payload.data};
+        case FETCH_QRCODE:
+            return { ...state, qrcode: action.payload.data };
         default:
             return state;
     }
