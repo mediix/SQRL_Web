@@ -31,5 +31,5 @@ class Challenge(Model):
     expiry = NumberAttribute(null=False)
     s3_file_path = UnicodeAttribute(null=False)
     is_expired = NumberAttribute(default=0)  # 1 is expired
-    user_logged_in = UnicodeAttribute(null=True)
+    user_logged_in = UnicodeAttribute(null=False)
     qrcode_index = CodeIndex()
