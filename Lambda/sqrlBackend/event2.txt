@@ -1,7 +1,12 @@
 {
     "body":{
         "operation":"authenticate",
-        "params":"client=post+param1&server=Post+param2"
+        "params":{
+		"client":"dmVyPXtjR0Z5ZG1WeX0NCmNtZD17Y0dGeVkyMWt9DQppZGs9e2NHRnlhV1JyfQ0KcGlkaz17Y0dGeWNHbGthd30NCnN1az17Y0dGeWMzVnJ9DQp2dWs9e2NHRnlkblZyfQ",
+		"server":"c3FybDovLzJvYzN5bzRzajkuZXhlY3V0ZS1hcGkudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vZGV2P251dD00ZS1BZlJ3SSZzZm49Q1NDSTE1Mg",
+		"ids":"cGFyaWRz",
+		"pids":"cGFycGlkcw",
+		"urs":"cGFydXJz"}
     },
     "headers":{
         "X-Sqrl-Request-Id":"",
